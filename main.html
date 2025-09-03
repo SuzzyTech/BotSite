@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* Blue edge strips */
     body::before, body::after {
       content: '';
       position: fixed;
@@ -45,14 +44,12 @@
     body::before { left: 0; }
     body::after { right: 0; }
 
-    /* Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* Navbar */
     .navbar {
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
@@ -111,7 +108,6 @@
       width: 100%;
     }
 
-    /* Hero Section */
     .hero {
       padding: 8rem 0 4rem;
       text-align: center;
@@ -133,7 +129,6 @@
       margin: 0 auto;
     }
 
-    /* Stats Section */
     .stats {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -168,7 +163,6 @@
       opacity: 0.8;
     }
 
-    /* Features */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -206,7 +200,6 @@
       margin-bottom: 25px;
     }
 
-    /* Buttons */
     .btn {
       display: inline-block;
       padding: 12px 30px;
@@ -245,13 +238,19 @@
       background: transparent;
       border: 2px solid var(--accent);
       color: var(--accent);
+      position: relative;
+    }
+
+    .btn-outline.locked::after {
+      content: " 🔒";
+      color: #ff4444;
+      font-weight: bold;
     }
 
     .btn-outline:hover {
       background: rgba(30,144,255,0.1);
     }
 
-    /* About Section */
     .about {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
@@ -275,7 +274,6 @@
       text-align: center;
     }
 
-    /* Footer */
     footer {
       background: var(--glass-bg);
       backdrop-filter: blur(12px);
@@ -355,7 +353,6 @@
       color: rgba(255,255,255,0.7);
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .navbar-container {
         flex-direction: column;
@@ -428,7 +425,7 @@
         </div>
         <h3>Deploy on Panel</h3>
         <p>Deploy Your bot on Katabump</p>
-         <a href="https://dashboard.katabump.com/auth/register#0ffaa0" class="btn btn-outline">Deploy on KataBump</a>
+        <a href="https://dashboard.katabump.com/auth/register#0ffaa0" class="btn btn-outline locked">Deploy on KataBump</a>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
@@ -436,7 +433,7 @@
         </div>
         <h3>Pair Codes</h3>
         <p>Remote setup made simple — connect with verification codes, no scanning needed.</p>
-        <a href="https://session.raganork.site/pairing-code" class="btn btn-outline">Get Code</a>
+        <a href="https://session.raganork.site/pairing-code" class="btn btn-outline locked">Get Code</a>
       </div>
       <div class="feature-card">
         <div class="feature-icon">
@@ -444,7 +441,7 @@
         </div>
         <h3>Download Bot File</h3>
         <p>Click Download Bot Zip File to set up your Raganork MD infrastructure.</p>
-        <a href="https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip" class="btn btn-outline">Download Bot Zip File</a>
+        <a href="https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip" class="btn btn-outline locked">Download Bot Zip File</a>
       </div>
     </section>
 
@@ -490,63 +487,51 @@
     </div>
   </footer>
   
-  <!-- GetButton.io widget -->
-  <script type="text/javascript">
-    (function () {
-      var options = {
-        telegram: "suzzytech",
-        call_to_action: "Need help? Message us",
-        position: "right",
-      };
-      var proto = 'https:', host = "getbutton.io", url = proto + '//static.' + host;
-      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
+  <!-- Unlock Script -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Define locked buttons with their real URL + WhatsApp unlock channel
-    const locks = {
-      "Deploy on KataBump": {
-        real: "https://dashboard.katabump.com/auth/register#0ffaa0",
-        unlock: "https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09",
-        key: "unlock_katabump"
-      },
-      "Get Code": {
-        real: "https://session.raganork.site/pairing-code",
-        unlock: "https://whatsapp.com/channel/0029Vb6TpGr8V0tuGPUnmq2V",
-        key: "unlock_code"
-      },
-      "Download Bot Zip File": {
-        real: "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip",
-        unlock: "https://whatsapp.com/channel/0029Vb6c3P0C6ZvmwX8SAp1t",
-        key: "unlock_zip"
-      }
-    };
+    document.addEventListener("DOMContentLoaded", () => {
+      const locks = {
+        "Deploy on KataBump": {
+          real: "https://dashboard.katabump.com/auth/register#0ffaa0",
+          unlock: "https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09",
+          key: "unlock_katabump"
+        },
+        "Get Code": {
+          real: "https://session.raganork.site/pairing-code",
+          unlock: "https://whatsapp.com/channel/0029Vb6TpGr8V0tuGPUnmq2V",
+          key: "unlock_code"
+        },
+        "Download Bot Zip File": {
+          real: "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip",
+          unlock: "https://whatsapp.com/channel/0029Vb6c3P0C6ZvmwX8SAp1t",
+          key: "unlock_zip"
+        }
+      };
 
-    // Intercept button clicks
-    document.querySelectorAll(".btn-outline").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
+      document.querySelectorAll(".btn-outline").forEach(btn => {
         let btnText = btn.textContent.trim();
         let lock = locks[btnText];
 
-        if (!lock) {
-          window.location.href = btn.href;
-          return;
+        // Remove lock icon if already unlocked
+        if (lock && localStorage.getItem(lock.key) === "true") {
+          btn.classList.remove("locked");
         }
 
-        // Check if already unlocked
-        if (localStorage.getItem(lock.key) === "true") {
-          window.open(lock.real, "_blank");
-        } else {
-          alert("🚨 You must join our WhatsApp channel to unlock this feature!");
-          window.open(lock.unlock, "_blank");
-          localStorage.setItem(lock.key, "true"); // Mark unlocked after first click
-        }
+        btn.addEventListener("click", (e) => {
+          if (!lock) return; // Skip if not in lock list
+          e.preventDefault();
+
+          if (localStorage.getItem(lock.key) === "true") {
+            window.open(lock.real, "_blank");
+          } else {
+            alert("🚨 You must join our WhatsApp channel to unlock this feature!");
+            window.open(lock.unlock, "_blank");
+            localStorage.setItem(lock.key, "true");
+            btn.classList.remove("locked");
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
