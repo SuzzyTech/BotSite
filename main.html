@@ -503,6 +503,50 @@
       s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
       var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
     })();
-  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Define locked buttons with their real URL + WhatsApp unlock channel
+    const locks = {
+      "Deploy on KataBump": {
+        real: "https://dashboard.katabump.com/auth/register#0ffaa0",
+        unlock: "https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09",
+        key: "unlock_katabump"
+      },
+      "Get Code": {
+        real: "https://session.raganork.site/pairing-code",
+        unlock: "https://whatsapp.com/channel/0029Vb6TpGr8V0tuGPUnmq2V",
+        key: "unlock_code"
+      },
+      "Download Bot Zip File": {
+        real: "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip",
+        unlock: "https://whatsapp.com/channel/0029Vb6c3P0C6ZvmwX8SAp1t",
+        key: "unlock_zip"
+      }
+    };
+
+    // Intercept button clicks
+    document.querySelectorAll(".btn-outline").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let btnText = btn.textContent.trim();
+        let lock = locks[btnText];
+
+        if (!lock) {
+          window.location.href = btn.href;
+          return;
+        }
+
+        // Check if already unlocked
+        if (localStorage.getItem(lock.key) === "true") {
+          window.open(lock.real, "_blank");
+        } else {
+          alert("🚨 You must join our WhatsApp channel to unlock this feature!");
+          window.open(lock.unlock, "_blank");
+          localStorage.setItem(lock.key, "true"); // Mark unlocked after first click
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
