@@ -15,184 +15,33 @@
       --glass-border: rgba(255, 255, 255, 0.15);
       --transition: all 0.3s ease-in-out;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
-    body {
-      background: var(--dark);
-      color: var(--light);
-      min-height: 100vh;
-    }
-
-    /* Navbar */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      background: var(--glass-bg);
-      border-bottom: 1px solid var(--glass-border);
-      padding: 1rem 2rem;
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-    }
-
-    .navbar .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .navbar .nav-links a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-    }
-
-    .navbar .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -4px;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: var(--transition);
-    }
-
-    .navbar .nav-links a:hover::after { width: 100%; }
-
-    /* Hero */
-    .hero {
-      padding: 8rem 2rem 4rem;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      opacity: .8;
-    }
-
-    /* Section Titles */
-    section h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: var(--accent);
-    }
-
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 4rem 2rem;
-    }
-
-    .feature-card {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      backdrop-filter: blur(16px);
-    }
-
-    .feature-card i {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .feature-card h3 {
-      margin-bottom: .6rem;
-    }
-
-    .btn {
-      display: inline-block;
-      margin: .5rem 0;
-      padding: 12px 20px;
-      font-weight: 600;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--dark);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--accent);
-      color: var(--accent);
-    }
-
-    .btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    /* About */
-    .about {
-      padding: 4rem 2rem;
-      background: var(--glass-bg);
-      border-top: 1px solid var(--glass-border);
-      border-bottom: 1px solid var(--glass-border);
-    }
-
-    .about p {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      opacity: .8;
-      margin-bottom: 1rem;
-    }
-
-    /* Footer */
-    footer {
-      padding: 2rem;
-      text-align: center;
-      border-top: 2px solid var(--accent);
-      background: var(--glass-bg);
-    }
-
-    footer .social {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    footer .social a {
-      color: var(--light);
-      font-size: 1.3rem;
-      transition: var(--transition);
-    }
-
-    footer .social a:hover { color: var(--accent); }
-
+    * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body {background:var(--dark);color:var(--light);min-height:100vh;}
+    .navbar {position:fixed;top:0;left:0;width:100%;background:var(--glass-bg);border-bottom:1px solid var(--glass-border);padding:1rem 2rem;backdrop-filter:blur(12px);z-index:1000;display:flex;justify-content:space-between;align-items:center;}
+    .navbar .logo {font-size:1.5rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:.6rem;}
+    .navbar .nav-links {display:flex;gap:2rem;}
+    .navbar .nav-links a {color:var(--light);text-decoration:none;font-weight:500;position:relative;}
+    .navbar .nav-links a::after {content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--accent);transition:var(--transition);}
+    .navbar .nav-links a:hover::after {width:100%;}
+    .hero {padding:8rem 2rem 4rem;text-align:center;max-width:900px;margin:auto;}
+    .hero h1 {font-size:3rem;background:linear-gradient(to right,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:1rem;}
+    .hero p {font-size:1.2rem;opacity:.8;}
+    section h2 {font-size:2rem;text-align:center;margin-bottom:2rem;color:var(--accent);}
+    .features {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;padding:4rem 2rem;}
+    .feature-card {background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:12px;padding:2rem;text-align:center;backdrop-filter:blur(16px);}
+    .feature-card i {font-size:2.5rem;color:var(--accent);margin-bottom:1rem;}
+    .btn {display:inline-block;margin:.5rem 0;padding:12px 20px;font-weight:600;border-radius:8px;border:none;cursor:pointer;transition:var(--transition);}
+    .btn-primary {background:var(--accent);color:var(--dark);}
+    .btn-outline {background:transparent;border:2px solid var(--accent);color:var(--accent);pointer-events:none;opacity:0.5;}
+    .btn-outline.active {pointer-events:auto;opacity:1;}
+    .lock-msg {font-size:0.9rem;color:#ccc;margin-bottom:0.4rem;}
+    .lock-hint {font-size:0.85rem;color:#aaa;margin-bottom:0.8rem;}
+    .about {padding:4rem 2rem;background:var(--glass-bg);border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);}
+    .about p {max-width:800px;margin:auto;text-align:center;opacity:.8;margin-bottom:1rem;}
+    footer {padding:2rem;text-align:center;border-top:2px solid var(--accent);background:var(--glass-bg);}
+    footer .social {margin-top:1rem;display:flex;justify-content:center;gap:1rem;}
+    footer .social a {color:var(--light);font-size:1.3rem;transition:var(--transition);}
+    footer .social a:hover {color:var(--accent);}
   </style>
 </head>
 <body>
@@ -216,15 +65,17 @@
   <section id="features">
     <h2>Our Features</h2>
     <div class="features">
-      
+
       <!-- KataBump -->
       <div class="feature-card">
         <i class="fas fa-cloud"></i>
         <h3>Deploy on KataBump</h3>
         <p>Deploy your bot seamlessly with our integrated platform support.</p>
+        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
+        <div class="lock-hint">➡️ This is the main link to <strong>KataBump</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('katabump','https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="katabump" href="https://dashboard.katabump.com/auth/register#0ffaa0" class="btn btn-outline" disabled><i class="fas fa-lock"></i> Locked</a>
+        <a id="katabump" href="https://dashboard.katabump.com/auth/register#0ffaa0" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
       </div>
 
       <!-- Pair Codes -->
@@ -232,9 +83,11 @@
         <i class="fas fa-mobile-alt"></i>
         <h3>Pair Codes</h3>
         <p>Connect with verification codes — no scanning needed.</p>
+        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
+        <div class="lock-hint">➡️ This is the main link to <strong>Pair Codes</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('pair','https://whatsapp.com/channel/0029Vb6TpGr8V0tuGPUnmq2V')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="pair" href="https://session.raganork.site/pairing-code" class="btn btn-outline" disabled><i class="fas fa-lock"></i> Locked</a>
+        <a id="pair" href="https://session.raganork.site/pairing-code" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
       </div>
 
       <!-- Download Bot -->
@@ -242,9 +95,11 @@
         <i class="fas fa-server"></i>
         <h3>Download Bot Zip File</h3>
         <p>Get the full bot source code to set up your Raganork MD infrastructure.</p>
+        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
+        <div class="lock-hint">➡️ This is the main link to <strong>Bot Zip File</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('zip','https://whatsapp.com/channel/0029Vb6c3P0C6ZvmwX8SAp1t')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="zip" href="https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip" class="btn btn-outline" disabled><i class="fas fa-lock"></i> Locked</a>
+        <a id="zip" href="https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
       </div>
 
     </div>
@@ -274,8 +129,8 @@
     function unlock(id, link) {
       window.open(link, "_blank"); // open WhatsApp channel
       const btn = document.getElementById(id);
-      btn.removeAttribute("disabled");
-      btn.innerHTML = "Unlocked ✅ Click Here";
+      btn.classList.add("active"); // allow clicking
+      btn.innerHTML = "✅ Unlocked – Click Here";
     }
   </script>
 </body>
