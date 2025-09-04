@@ -203,7 +203,7 @@
         <div class="lock-hint">➡️ This is the main link to <strong>KataBump</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('katabump','https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="katabump" href="https://dashboard.katabump.com/auth/register#0ffaa0" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
+        <a id="katabump" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
       </div>
 
       <!-- Pair Codes -->
@@ -215,7 +215,7 @@
         <div class="lock-hint">➡️ This is the main link to <strong>Pair Codes</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('pair','https://whatsapp.com/channel/0029Vb6TpGr8V0tuGPUnmq2V')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="pair" href="https://session.raganork.site/pairing-code" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
+        <a id="pair" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
       </div>
 
       <!-- Download Bot -->
@@ -227,7 +227,7 @@
         <div class="lock-hint">➡️ This is the main link to <strong>Bot Zip File</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('zip','https://whatsapp.com/channel/0029Vb6c3P0C6ZvmwX8SAp1t')">Join WhatsApp to Unlock</button>
         <br>
-        <a id="zip" href="https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
+        <a id="zip" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
       </div>
 
     </div>
@@ -254,12 +254,35 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Lock system
     function unlock(id, link) {
-      window.open(link, "_blank");
+      window.open(link, "_blank"); // open WhatsApp link
+
       const btn = document.getElementById(id);
       btn.classList.add("active");
       btn.innerHTML = "✅ Unlocked – Click Here";
+
+      // set correct URL based on feature
+      if (id === "katabump") {
+        btn.href = "https://dashboard.katabump.com/auth/register#0ffaa0";
+      }
+      if (id === "pair") {
+        btn.href = "https://session.raganork.site/pairing-code";
+      }
+      if (id === "zip") {
+        btn.href = "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip";
+      }
+
+      // make it clickable
+      btn.style.pointerEvents = "auto";
+      btn.style.opacity = "1";
     }
+
+    // Initially disable all main links
+    document.querySelectorAll(".btn-outline").forEach(btn => {
+      btn.style.pointerEvents = "none";
+      btn.style.opacity = "0.6";
+    });
 
     // Scroll Reveal
     const revealElements = document.querySelectorAll('.feature-card, .about, footer');
