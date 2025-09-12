@@ -46,7 +46,9 @@
       text-shadow:0 0 12px var(--primary), 0 0 22px var(--accent);
       display:flex;align-items:center;gap:.5rem;
     }
-    .nav-links {display:flex;gap:1.2rem;}
+    .nav-links {
+      display:flex;gap:1.2rem;
+    }
     .nav-links a {
       color:var(--light);text-decoration:none;font-weight:500;position:relative;
       transition:var(--transition);font-size:0.95rem;
@@ -57,6 +59,20 @@
     }
     .nav-links a:hover {color:var(--accent);}
     .nav-links a:hover::after {width:100%;}
+
+    /* Hamburger */
+    .menu-toggle {
+      display:none;font-size:1.6rem;color:var(--light);cursor:pointer;
+    }
+    @media (max-width:768px) {
+      .nav-links {
+        position:absolute;top:70px;left:0;width:100%;
+        background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;
+        max-height:0;overflow:hidden;transition:max-height 0.4s ease;
+      }
+      .nav-links.open {max-height:250px;}
+      .menu-toggle {display:block;}
+    }
 
     /* Hero */
     .hero {
@@ -197,7 +213,8 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo"><i class="fas fa-robot"></i> Suzzy Tech</div>
-    <nav class="nav-links">
+    <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+    <nav class="nav-links" id="navLinks">
       <a href="#features">Features</a>
       <a href="#about">About</a>
       <a href="#support">Support</a>
@@ -215,8 +232,6 @@
   <section id="features">
     <h2>Our Features</h2>
     <div class="features">
-
-      <!-- Feature Example -->
       <div class="feature-card">
         <i class="fas fa-cloud"></i>
         <h3>Deploy on KataBump</h3>
@@ -224,7 +239,6 @@
         <button class="btn btn-primary" onclick="unlock('katabump','https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09')">Join WhatsApp to Unlock</button>
         <a id="katabump" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
       </div>
-
       <div class="feature-card">
         <i class="fas fa-mobile-alt"></i>
         <h3>Pair Codes</h3>
@@ -232,7 +246,6 @@
         <button class="btn btn-primary" onclick="unlock('pair','https://whatsapp.com/channel/0029VbBS5Rp89inicWM3h71v')">Join WhatsApp to Unlock</button>
         <a id="pair" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
       </div>
-
       <div class="feature-card">
         <i class="fas fa-server"></i>
         <h3>Download Bot Zip File</h3>
@@ -240,7 +253,6 @@
         <button class="btn btn-primary" onclick="unlock('zip','https://whatsapp.com/channel/0029VbBDvGX8fewlXwY4BL1W')">Join WhatsApp to Unlock</button>
         <a id="zip" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
       </div>
-
     </div>
   </section>
 
@@ -279,6 +291,16 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Navbar toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("fa-bars");
+      menuToggle.classList.toggle("fa-times");
+    });
+
+    // Unlock buttons
     function unlock(id, link) {
       window.open(link, "_blank");
       const btn = document.getElementById(id);
@@ -290,11 +312,13 @@
       btn.style.pointerEvents = "auto";btn.style.opacity = "1";
     }
 
+    // Copy wallet
     function copyWallet() {
       const wallet = document.getElementById("walletAddress").innerText;
       navigator.clipboard.writeText(wallet).then(() => alert("Wallet address copied ✅"));
     }
 
+    // Reveal on scroll
     const revealElements = document.querySelectorAll('.feature-card, .about, footer');
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
