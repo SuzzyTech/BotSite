@@ -46,7 +46,11 @@
       text-shadow:0 0 12px var(--primary), 0 0 22px var(--accent);
       display:flex;align-items:center;gap:.5rem;
     }
-    .nav-links {display:flex;gap:1.2rem;}
+
+    /* Desktop links */
+    .nav-links {
+      display:flex;gap:1.2rem;
+    }
     .nav-links a {
       color:var(--light);text-decoration:none;font-weight:500;position:relative;
       transition:var(--transition);font-size:0.95rem;
@@ -57,6 +61,29 @@
     }
     .nav-links a:hover {color:var(--accent);}
     .nav-links a:hover::after {width:100%;}
+
+    /* Hamburger for mobile */
+    .hamburger {
+      display:none;font-size:1.6rem;color:var(--light);
+      cursor:pointer;background:none;border:none;
+    }
+
+    /* Mobile slide menu */
+    .mobile-menu {
+      position:fixed;top:0;right:-100%;height:100vh;width:220px;
+      background:rgba(10,0,20,0.95);
+      backdrop-filter:blur(12px);
+      display:flex;flex-direction:column;align-items:center;
+      padding-top:6rem;gap:1.5rem;
+      transition:var(--transition);
+      z-index:999;
+    }
+    .mobile-menu a {
+      color:var(--light);text-decoration:none;font-size:1.1rem;
+      font-weight:500;transition:var(--transition);
+    }
+    .mobile-menu a:hover {color:var(--accent);}
+    .mobile-menu.show {right:0;}
 
     /* Hero */
     .hero {
@@ -186,6 +213,10 @@
     }
 
     /* Responsive */
+    @media (max-width:768px) {
+      .nav-links {display:none;}
+      .hamburger {display:block;}
+    }
     @media (min-width:700px) {
       .features {grid-template-columns:repeat(3,1fr);}
       .hero h1 {font-size:3rem;}
@@ -203,7 +234,16 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
   </header>
+
+  <!-- Mobile Slide Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="toggleMenu()">Features</a>
+    <a href="#support" onclick="toggleMenu()">Support</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
 
   <!-- Hero -->
   <section class="hero">
@@ -216,7 +256,6 @@
     <h2>Our Features</h2>
     <div class="features">
 
-      <!-- Feature Example -->
       <div class="feature-card">
         <i class="fas fa-cloud"></i>
         <h3>Deploy on KataBump</h3>
@@ -244,7 +283,7 @@
     </div>
   </section>
 
-  <!-- Support (moved here under Features) -->
+  <!-- Support (under Features) -->
   <section id="support">
     <h2>💛 Support SuzzyTech</h2>
     <p>If you love what we’re building at SuzzyTech and would like to support us, you can send a contribution through Binance (USDT TRC20). Every little bit helps us keep creating better tech for you!</p>
@@ -293,6 +332,10 @@
     function copyWallet() {
       const wallet = document.getElementById("walletAddress").innerText;
       navigator.clipboard.writeText(wallet).then(() => alert("Wallet address copied ✅"));
+    }
+
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
     }
 
     const revealElements = document.querySelectorAll('.feature-card, .about, footer');
