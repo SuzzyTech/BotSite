@@ -37,39 +37,38 @@
     .navbar {
       position:fixed;top:0;left:0;width:100%;
       background:rgba(0,0,0,0.4);border-bottom:1px solid var(--glass-border);
-      padding:1rem 2rem;backdrop-filter:blur(14px);
+      padding:1rem 1.5rem;backdrop-filter:blur(14px);
       display:flex;justify-content:space-between;align-items:center;z-index:1000;
-      box-shadow:0 4px 20px rgba(0,0,0,0.6);
     }
-    .navbar .logo {
-      font-size:1.6rem;font-weight:700;
+    .logo {
+      font-size:1.4rem;font-weight:700;
       color:var(--primary);
       text-shadow:0 0 12px var(--primary), 0 0 22px var(--accent);
-      display:flex;align-items:center;gap:.6rem;
+      display:flex;align-items:center;gap:.5rem;
     }
-    .navbar .nav-links {display:flex;gap:2rem;}
-    .navbar .nav-links a {
+    .nav-links {display:flex;gap:1.2rem;}
+    .nav-links a {
       color:var(--light);text-decoration:none;font-weight:500;position:relative;
-      transition:var(--transition);
+      transition:var(--transition);font-size:0.95rem;
     }
-    .navbar .nav-links a::after {
+    .nav-links a::after {
       content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;
       background:var(--primary);transition:var(--transition);
     }
-    .navbar .nav-links a:hover {color:var(--accent);}
-    .navbar .nav-links a:hover::after {width:100%;}
+    .nav-links a:hover {color:var(--accent);}
+    .nav-links a:hover::after {width:100%;}
 
     /* Hero */
     .hero {
-      padding:10rem 2rem 5rem;text-align:center;max-width:900px;margin:auto;
+      padding:8rem 1.5rem 4rem;text-align:center;max-width:900px;margin:auto;
     }
     .hero h1 {
-      font-size:3.4rem;
+      font-size:2.2rem;
       background:linear-gradient(90deg,var(--primary),var(--accent),#9d4eff);
       -webkit-background-clip:text;background-clip:text;color:transparent;
       margin-bottom:1rem;animation:neonPulse 2s infinite alternate;
     }
-    .hero p {font-size:1.25rem;opacity:.9;line-height:1.6;}
+    .hero p {font-size:1rem;opacity:.9;line-height:1.6;}
 
     @keyframes neonPulse {
       from {text-shadow:0 0 12px var(--primary);}
@@ -78,97 +77,119 @@
 
     /* Section titles */
     section h2 {
-      font-size:2.3rem;text-align:center;margin-bottom:2.5rem;
+      font-size:1.8rem;text-align:center;margin-bottom:2rem;
       color:var(--accent);
       text-shadow:0 0 14px var(--accent), 0 0 28px var(--primary);
     }
 
     /* Features */
     .features {
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:2rem;padding:5rem 2rem;
+      display:grid;grid-template-columns:1fr;gap:1.5rem;padding:3rem 1.5rem;
     }
     .feature-card {
       background:rgba(255,255,255,0.04);
       border:1px solid var(--glass-border);
-      border-radius:16px;padding:2.5rem;text-align:center;
+      border-radius:14px;padding:2rem;text-align:center;
       backdrop-filter:blur(20px);
-      box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      box-shadow:0 6px 20px rgba(0,0,0,0.5);
       transition:var(--transition);
       opacity:0;transform:translateY(40px);
     }
-    .feature-card.show {
-      opacity:1;transform:translateY(0);
-    }
+    .feature-card.show {opacity:1;transform:translateY(0);}
     .feature-card:hover {
-      transform:translateY(-10px) scale(1.03);
-      box-shadow:0 10px 50px rgba(255, 78, 205,.5);
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 10px 40px rgba(255, 78, 205,.5);
       border-color:var(--accent);
     }
     .feature-card i {
-      font-size:3rem;color:var(--primary);margin-bottom:1rem;
+      font-size:2.5rem;color:var(--primary);margin-bottom:1rem;
       transition:var(--transition);
       text-shadow:0 0 18px var(--primary);
     }
-    .feature-card:hover i {transform:scale(1.2) rotate(8deg);color:var(--accent);}
+    .feature-card:hover i {transform:scale(1.2) rotate(6deg);color:var(--accent);}
 
     /* Buttons */
     .btn {
-      display:inline-block;margin:.6rem 0;padding:12px 24px;
-      font-weight:600;border-radius:10px;border:none;cursor:pointer;
-      transition:var(--transition);letter-spacing:0.5px;
+      display:inline-block;margin:.6rem 0;padding:10px 18px;
+      font-weight:600;border-radius:8px;border:none;cursor:pointer;
+      transition:var(--transition);letter-spacing:0.5px;font-size:0.9rem;
     }
     .btn-primary {
       background:linear-gradient(90deg,var(--primary),var(--accent));
       color:#fff;box-shadow:var(--glow);
     }
-    .btn-primary:hover {transform:scale(1.07);}
+    .btn-primary:hover {transform:scale(1.05);}
     .btn-outline {
       background:transparent;border:2px solid var(--accent);
       color:var(--accent);opacity:.6;cursor:not-allowed;
-      transition:var(--transition);
     }
     .btn-outline.active {
       opacity:1;cursor:pointer;color:#fff;
       background:linear-gradient(90deg,var(--accent),var(--primary));
-      box-shadow:0 0 15px var(--accent);
+      box-shadow:0 0 12px var(--accent);
     }
-
-    /* Lock texts */
-    .lock-msg {font-size:0.9rem;color:#ddd;margin-bottom:0.4rem;}
-    .lock-hint {font-size:0.85rem;color:#aaa;margin-bottom:0.8rem;}
 
     /* About */
     .about {
-      padding:5rem 2rem;background:rgba(255,255,255,0.03);
+      padding:3rem 1.5rem;background:rgba(255,255,255,0.03);
       border-top:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);
-      opacity:0;transform:translateY(40px);
-      transition:var(--transition);
+      opacity:0;transform:translateY(40px);transition:var(--transition);
     }
     .about.show {opacity:1;transform:translateY(0);}
     .about p {
       max-width:800px;margin:auto;text-align:center;
-      opacity:.85;margin-bottom:1rem;line-height:1.7;
+      opacity:.85;margin-bottom:1rem;line-height:1.6;font-size:0.95rem;
     }
+
+    /* Support */
+    #support {
+      background:#f9f9f9;
+      padding:40px 20px;
+      text-align:center;
+      border-radius:12px;
+      margin:40px auto;
+      max-width:900px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      color:#222;
+    }
+    #support p {font-size:0.95rem;line-height:1.6;}
+    .support-box {
+      background:#fff;padding:20px;border-radius:12px;
+      display:inline-block;max-width:100%;width:100%;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+    .support-box img {
+      margin-top:15px;width:100%;max-width:200px;border-radius:8px;height:auto;
+    }
+    .support-box button {
+      padding:10px 16px;font-size:0.9rem;border:none;border-radius:6px;
+      background:#f0c419;color:#111;cursor:pointer;margin-bottom:15px;width:100%;
+    }
+    #walletAddress {font-weight:bold;word-wrap:break-word;font-size:0.95rem;}
 
     /* Footer */
     footer {
-      padding:2.5rem;text-align:center;border-top:2px solid var(--primary);
+      padding:2rem 1.5rem;text-align:center;border-top:2px solid var(--primary);
       background:rgba(0,0,0,0.4);
       opacity:0;transform:translateY(40px);
       transition:var(--transition);
     }
     footer.show {opacity:1;transform:translateY(0);}
-    footer p {opacity:.7;}
-    footer .social {
-      margin-top:1.2rem;display:flex;justify-content:center;gap:1.5rem;
+    footer p {opacity:.7;font-size:0.9rem;}
+    .social {
+      margin-top:1.2rem;display:flex;justify-content:center;gap:1.2rem;
     }
-    footer .social a {
-      color:var(--light);font-size:1.6rem;transition:var(--transition);
+    .social a {color:var(--light);font-size:1.4rem;transition:var(--transition);}
+    .social a:hover {
+      color:var(--primary);transform:scale(1.2);
+      text-shadow:0 0 12px var(--primary),0 0 20px var(--accent);
     }
-    footer .social a:hover {
-      color:var(--primary);transform:scale(1.25);
-      text-shadow:0 0 18px var(--primary),0 0 28px var(--accent);
+
+    /* Responsive */
+    @media (min-width:700px) {
+      .features {grid-template-columns:repeat(3,1fr);}
+      .hero h1 {font-size:3rem;}
+      .hero p {font-size:1.2rem;}
     }
   </style>
 </head>
@@ -179,6 +200,7 @@
     <nav class="nav-links">
       <a href="#features">Features</a>
       <a href="#about">About</a>
+      <a href="#support">Support</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -194,39 +216,28 @@
     <h2>Our Features</h2>
     <div class="features">
 
-      <!-- KataBump -->
+      <!-- Feature Example -->
       <div class="feature-card">
         <i class="fas fa-cloud"></i>
         <h3>Deploy on KataBump</h3>
         <p>Deploy your bot seamlessly with our integrated platform support.</p>
-        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
-        <div class="lock-hint">➡️ This is the main link to <strong>KataBump</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('katabump','https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09')">Join WhatsApp to Unlock</button>
-        <br>
         <a id="katabump" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
       </div>
 
-      <!-- Pair Codes -->
       <div class="feature-card">
         <i class="fas fa-mobile-alt"></i>
         <h3>Pair Codes</h3>
         <p>Connect with verification codes — no scanning needed.</p>
-        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
-        <div class="lock-hint">➡️ This is the main link to <strong>Pair Codes</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('pair','https://whatsapp.com/channel/0029VbBS5Rp89inicWM3h71v')">Join WhatsApp to Unlock</button>
-        <br>
         <a id="pair" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
       </div>
 
-      <!-- Download Bot -->
       <div class="feature-card">
         <i class="fas fa-server"></i>
         <h3>Download Bot Zip File</h3>
         <p>Get the full bot source code to set up your Raganork MD infrastructure.</p>
-        <div class="lock-msg">🔒 Locked – Join channel to unlock</div>
-        <div class="lock-hint">➡️ This is the main link to <strong>Bot Zip File</strong>. Unlock to access it.</div>
         <button class="btn btn-primary" onclick="unlock('zip','https://whatsapp.com/channel/0029VbBDvGX8fewlXwY4BL1W')">Join WhatsApp to Unlock</button>
-        <br>
         <a id="zip" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
       </div>
 
@@ -239,6 +250,20 @@
     <p>Suzzy Tech specializes in creating advanced WhatsApp bot solutions for businesses and developers worldwide.</p>
     <p>Our platform enables effortless session management, lightning-fast deployment, and powerful automation tools.</p>
     <p>We are committed to providing secure, scalable, and easy-to-use solutions — ensuring you stay connected 24/7.</p>
+  </section>
+
+  <!-- Support -->
+  <section id="support">
+    <h2>💛 Support SuzzyTech</h2>
+    <p>If you love what we’re building at SuzzyTech and would like to support us, you can send a contribution through Binance (USDT TRC20). Every little bit helps us keep creating better tech for you!</p>
+    <div class="support-box">
+      <h3>Wallet Address:</h3>
+      <p id="walletAddress">TAF8jNjttkRcAVahRhBLhvaTtNL7cvUxcY</p>
+      <button onclick="copyWallet()">📋 Copy Address</button>
+      <img src="https://raw.githubusercontent.com/SuzzyTech/botSite/main/binance-qr.png" alt="Binance QR Code">
+      <p class="hint">Scan the QR code or copy the address above.</p>
+    </div>
+    <p class="thanks">Thank you for being part of our journey! 💡</p>
   </section>
 
   <!-- Footer -->
@@ -254,89 +279,32 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Lock system
     function unlock(id, link) {
-      window.open(link, "_blank"); // open WhatsApp link
-
+      window.open(link, "_blank");
       const btn = document.getElementById(id);
       btn.classList.add("active");
       btn.innerHTML = "✅ Unlocked – Click Here";
-
-      // set correct URL based on feature
-      if (id === "katabump") {
-        btn.href = "https://dashboard.katabump.com/auth/register#0ffaa0";
-      }
-      if (id === "pair") {
-        btn.href = "https://session.raganork.site/pairing-code";
-      }
-      if (id === "zip") {
-        btn.href = "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip";
-      }
-
-      // make it clickable
-      btn.style.pointerEvents = "auto";
-      btn.style.opacity = "1";
+      if (id === "katabump") btn.href = "https://dashboard.katabump.com/auth/register#0ffaa0";
+      if (id === "pair") btn.href = "https://session.raganork.site/pairing-code";
+      if (id === "zip") btn.href = "https://github.com/SuzzyTech/Raganork/archive/refs/heads/main.zip";
+      btn.style.pointerEvents = "auto";btn.style.opacity = "1";
     }
 
-    // Initially disable all main links
-    document.querySelectorAll(".btn-outline").forEach(btn => {
-      btn.style.pointerEvents = "none";
-      btn.style.opacity = "0.6";
-    });
+    function copyWallet() {
+      const wallet = document.getElementById("walletAddress").innerText;
+      navigator.clipboard.writeText(wallet).then(() => alert("Wallet address copied ✅"));
+    }
 
-    // Scroll Reveal
     const revealElements = document.querySelectorAll('.feature-card, .about, footer');
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
       revealElements.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < windowHeight - 50) {
-          el.classList.add('show');
-        }
+        if (rect.top < windowHeight - 50) el.classList.add('show');
       });
     }
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
-
-<section id="support" style="background:#f9f9f9; padding:40px; text-align:center; border-radius:12px; margin:40px auto; max-width:800px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
-  <h2 style="font-size:28px; margin-bottom:20px; color:#222;">💛 Support SuzzyTech</h2>
-  <p style="font-size:18px; color:#555; margin-bottom:25px;">
-    If you love what we’re building at SuzzyTech and would like to support us, you can send a contribution through Binance (USDT TRC20).  
-    Every little bit helps us keep creating better tech for you!
-  </p>
-
-  <div style="background:#fff; padding:20px; border-radius:12px; display:inline-block; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
-    <h3 style="margin-bottom:10px; font-size:20px; color:#333;">Wallet Address:</h3>
-
-    <!-- Wallet Address with Copy -->
-    <p id="walletAddress" style="font-size:18px; font-weight:bold; color:#111; cursor:pointer;">
-      TAF8jNjttkRcAVahRhBLhvaTtNL7cvUxcY
-    </p>
-    <button onclick="copyWallet()" style="padding:8px 15px; font-size:14px; border:none; border-radius:6px; background:#f0c419; color:#111; cursor:pointer; margin-top:8px;">
-      📋 Copy Address
-    </button>
-
-    <!-- QR Code from GitHub (replace USERNAME/REPO with yours) -->
-    <img src="https://raw.githubusercontent.com/SuzzyTech/botSite/main/binance-qr.png" alt="Binance QR Code" style="margin-top:15px; width:200px; border-radius:8px;">
-
-    <p style="font-size:15px; color:#777; margin-top:15px;">Scan the QR code or copy the address above.</p>
-  </div>
-
-  <p style="margin-top:25px; font-size:16px; color:#444;">
-    Thank you for being part of our journey! 💡
-  </p>
-</section>
-
-<script>
-  function copyWallet() {
-    const wallet = document.getElementById("walletAddress").innerText;
-    navigator.clipboard.writeText(wallet).then(() => {
-      alert("Wallet address copied ✅");
-    });
-  }
-</script>
-</section>
-
 </body>
 </html>
