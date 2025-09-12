@@ -46,9 +46,7 @@
       text-shadow:0 0 12px var(--primary), 0 0 22px var(--accent);
       display:flex;align-items:center;gap:.5rem;
     }
-    .nav-links {
-      display:flex;gap:1.2rem;
-    }
+    .nav-links {display:flex;gap:1.2rem;}
     .nav-links a {
       color:var(--light);text-decoration:none;font-weight:500;position:relative;
       transition:var(--transition);font-size:0.95rem;
@@ -59,20 +57,6 @@
     }
     .nav-links a:hover {color:var(--accent);}
     .nav-links a:hover::after {width:100%;}
-
-    /* Hamburger */
-    .menu-toggle {
-      display:none;font-size:1.6rem;color:var(--light);cursor:pointer;
-    }
-    @media (max-width:768px) {
-      .nav-links {
-        position:absolute;top:70px;left:0;width:100%;
-        background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;
-        max-height:0;overflow:hidden;transition:max-height 0.4s ease;
-      }
-      .nav-links.open {max-height:250px;}
-      .menu-toggle {display:block;}
-    }
 
     /* Hero */
     .hero {
@@ -213,11 +197,10 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo"><i class="fas fa-robot"></i> Suzzy Tech</div>
-    <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links">
       <a href="#features">Features</a>
-      <a href="#about">About</a>
       <a href="#support">Support</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -232,6 +215,8 @@
   <section id="features">
     <h2>Our Features</h2>
     <div class="features">
+
+      <!-- Feature Example -->
       <div class="feature-card">
         <i class="fas fa-cloud"></i>
         <h3>Deploy on KataBump</h3>
@@ -239,6 +224,7 @@
         <button class="btn btn-primary" onclick="unlock('katabump','https://whatsapp.com/channel/0029Vb6czaK3GJP2Dngjjj09')">Join WhatsApp to Unlock</button>
         <a id="katabump" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (KataBump)</a>
       </div>
+
       <div class="feature-card">
         <i class="fas fa-mobile-alt"></i>
         <h3>Pair Codes</h3>
@@ -246,6 +232,7 @@
         <button class="btn btn-primary" onclick="unlock('pair','https://whatsapp.com/channel/0029VbBS5Rp89inicWM3h71v')">Join WhatsApp to Unlock</button>
         <a id="pair" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Pair Codes)</a>
       </div>
+
       <div class="feature-card">
         <i class="fas fa-server"></i>
         <h3>Download Bot Zip File</h3>
@@ -253,18 +240,11 @@
         <button class="btn btn-primary" onclick="unlock('zip','https://whatsapp.com/channel/0029VbBDvGX8fewlXwY4BL1W')">Join WhatsApp to Unlock</button>
         <a id="zip" href="#" class="btn btn-outline"><i class="fas fa-lock"></i> Locked (Bot Zip File)</a>
       </div>
+
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <h2>About Suzzy Tech</h2>
-    <p>Suzzy Tech specializes in creating advanced WhatsApp bot solutions for businesses and developers worldwide.</p>
-    <p>Our platform enables effortless session management, lightning-fast deployment, and powerful automation tools.</p>
-    <p>We are committed to providing secure, scalable, and easy-to-use solutions — ensuring you stay connected 24/7.</p>
-  </section>
-
-  <!-- Support -->
+  <!-- Support (moved here under Features) -->
   <section id="support">
     <h2>💛 Support SuzzyTech</h2>
     <p>If you love what we’re building at SuzzyTech and would like to support us, you can send a contribution through Binance (USDT TRC20). Every little bit helps us keep creating better tech for you!</p>
@@ -276,6 +256,14 @@
       <p class="hint">Scan the QR code or copy the address above.</p>
     </div>
     <p class="thanks">Thank you for being part of our journey! 💡</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Suzzy Tech</h2>
+    <p>Suzzy Tech specializes in creating advanced WhatsApp bot solutions for businesses and developers worldwide.</p>
+    <p>Our platform enables effortless session management, lightning-fast deployment, and powerful automation tools.</p>
+    <p>We are committed to providing secure, scalable, and easy-to-use solutions — ensuring you stay connected 24/7.</p>
   </section>
 
   <!-- Footer -->
@@ -291,16 +279,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Navbar toggle
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuToggle.classList.toggle("fa-bars");
-      menuToggle.classList.toggle("fa-times");
-    });
-
-    // Unlock buttons
     function unlock(id, link) {
       window.open(link, "_blank");
       const btn = document.getElementById(id);
@@ -312,13 +290,11 @@
       btn.style.pointerEvents = "auto";btn.style.opacity = "1";
     }
 
-    // Copy wallet
     function copyWallet() {
       const wallet = document.getElementById("walletAddress").innerText;
       navigator.clipboard.writeText(wallet).then(() => alert("Wallet address copied ✅"));
     }
 
-    // Reveal on scroll
     const revealElements = document.querySelectorAll('.feature-card, .about, footer');
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
